@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 
 /**
  * @author liuboren
- * @Title:
+ * @Title:发送消息的接口
  * @Description:
  * @date 2018/6/27 15:36
  */
@@ -19,8 +19,8 @@ public class SendController {
     private Sender sender;
 
     @GetMapping("send")
-    public void send(){
+    public String send(){
         sender.send();
-
+        return "消息已发送..";
     }
 }

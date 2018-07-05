@@ -15,12 +15,15 @@ import java.util.Date;
 @Component
 public class Sender {
 
+    //通过注入的这个类来传递消息
     @Autowired
     private AmqpTemplate rabbitTemplate;
 
     public void send(){
         String context = "hello"+ new Date();
         System.out.println("Sender :"+ context);
+
+        //hello为创建的队列名,context为发送的消息
         this.rabbitTemplate.convertAndSend("hello",context);
     }
 
